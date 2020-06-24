@@ -25,7 +25,7 @@ const handleChange = async function (changeEvent) {
 			console.log(changeEvent.changes.Response__c.oldModifications); 
 		}
 		if(changeEvent.changes.Response__c.hasOwnProperty('newModifications:')) {
-			console.log(changeEvent.changes.Response__c.newModifications:); 
+			console.log(changeEvent.changes.Response__c.newModifications); 
 		}
 	}
 }
