@@ -20,12 +20,12 @@ const handleChange = async function (changeEvent) {
 	console.log('matches', matches);
 
 	if(changeEvent.changes.hasOwnProperty('Response__c')) {
-		console.log(changeEvent.changes.Response__c); 
-		if(changeEvent.changes.Response__c.hasOwnProperty('oldModifications')) {
-			console.log(changeEvent.changes.Response__c.oldModifications); 
-		}
+		// console.log(changeEvent.changes.Response__c); 
+		// if(changeEvent.changes.Response__c.hasOwnProperty('oldModifications')) {
+		// 	console.log(changeEvent.changes.Response__c.oldModifications); 
+		// }
 		if(changeEvent.changes.Response__c.hasOwnProperty('newModifications:')) {
-			console.log(changeEvent.changes.Response__c.newModifications); 
+			console.log(changeEvent.changes.Response__c.newModifications[0]); 
 		}
 	}
 }
