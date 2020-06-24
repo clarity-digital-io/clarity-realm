@@ -24,7 +24,9 @@ const handleChange = async function (changeEvent) {
 		// if(changeEvent.changes.Response__c.hasOwnProperty('oldModifications')) {
 		// 	console.log(changeEvent.changes.Response__c.oldModifications); 
 		// }
-		console.log('change'); 
+		var userId = matches[1];
+
+		console.log('change', userId); 
 		var realm = changeEvent.realm;
 
 		var coupons = realm.objects('Response__c');
