@@ -31,9 +31,6 @@ const handleChange = async function (changeEvent) {
 
 		var coupons = realm.objects('Response__c');
 
-		let transformedResponses = transform(responses); 
-
-
 		console.log('coupons', changeEvent.changes.Response__c);
 		if(changeEvent.changes.Response__c.hasOwnProperty('newModifications')) {
 
