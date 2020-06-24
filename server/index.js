@@ -32,14 +32,12 @@ const handleChange = async function (changeEvent) {
 		var coupons = realm.objects('Response__c');
 
 		console.log('coupons', changeEvent.changes.Response__c);
-		if(changeEvent.changes.Response__c.hasOwnProperty('insertions')) {
+		if(changeEvent.changes.Response__c.hasOwnProperty('newModifications')) {
 
-			var couponIndexes = changeEvent.changes.Response__c.insertions;
+			var couponIndexes = changeEvent.changes.Response__c.newModifications;
 
 			for(let couponIndex of couponIndexes) {
-				console.log('couponIndex', couponIndex);
-				var coupon = coupons[couponIndex];
-				console.log('coupon', coupon);
+				console.log('couponIndex', couponIndex.hasOwnProperty('Response__c'));
 			}
 		}
 	}
