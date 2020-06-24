@@ -27,11 +27,11 @@ const handleChange = async function (changeEvent) {
 		var userId = matches[1];
 
 		console.log('change', userId); 
-		var realm = changeEvent.realm;
+		var oldRealm = changeEvent.oldRealm;
 
-		var coupons = realm.objects('Response__c');
+		var coupons = oldRealm.objects('Response__c');
 
-		console.log('coupons', changeEvent.changes.Response__c);
+		console.log('coupons',coupons);
 		if(changeEvent.changes.Response__c.hasOwnProperty('newModifications')) {
 
 			var couponIndexes = changeEvent.changes.Response__c.newModifications;
