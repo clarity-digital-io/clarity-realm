@@ -24,10 +24,18 @@ const handleChange = async function (changeEvent) {
 		// if(changeEvent.changes.Response__c.hasOwnProperty('oldModifications')) {
 		// 	console.log(changeEvent.changes.Response__c.oldModifications); 
 		// }
+		var realm = changeEvent.realm;
+
+		var coupons = realm.objects('Response__c');
+
 		if(changeEvent.changes.Response__c.hasOwnProperty('newModifications:')) {
-			//console.log(changeEvent.changes.Response__c.newModifications[0]); 
-			for(let t in changeEvent.changes.Response__c.newModifications) {
-				console.log('t', t);
+
+			var couponIndexes = changeEvent.changes.Response__c.newModifications;
+
+			for(let couponIndex of couponIndexes) {
+				console.log('couponIndex', couponIndex);
+				var coupon = coupons[couponIndex];
+				console.log('coupon', coupon);
 			}
 		}
 	}
