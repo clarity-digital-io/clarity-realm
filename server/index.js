@@ -37,7 +37,7 @@ const handleChange = async function (changeEvent) {
 			var couponIndexes = changeEvent.changes.Response__c.newModifications;
 
 			for(let couponIndex of couponIndexes) {
-				console.log('couponIndex', couponIndex.hasOwnProperty('Response__c'));
+				console.log('couponIndex', couponIndex.hasOwnProperty('Id'));
 			}
 		}
 	}
