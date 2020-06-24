@@ -17,7 +17,7 @@ const listener = async () => {
 const handleChange = async function (changeEvent) {
 
 	var matches = changeEvent.path.match("^/([^/]+)/([^/]+)$");
-	console.log('matches', matches);
+	//console.log('matches', matches);
 
 	if(changeEvent.changes.hasOwnProperty('Response__c')) {
 		// console.log(changeEvent.changes.Response__c); 
@@ -25,7 +25,10 @@ const handleChange = async function (changeEvent) {
 		// 	console.log(changeEvent.changes.Response__c.oldModifications); 
 		// }
 		if(changeEvent.changes.Response__c.hasOwnProperty('newModifications:')) {
-			console.log(changeEvent.changes.Response__c.newModifications[0]); 
+			//console.log(changeEvent.changes.Response__c.newModifications[0]); 
+			for(let t in changeEvent.changes.Response__c.newModifications) {
+				console.log('t', t);
+			}
 		}
 	}
 }
