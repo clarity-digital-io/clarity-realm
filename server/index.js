@@ -30,7 +30,11 @@ const handleChange = async function (changeEvent) {
 		var realm = changeEvent.realm;
 
 		var coupons = realm.objects('Response__c');
-		console.log('coupons', coupons);
+
+		let transformedResponses = transform(responses); 
+
+
+		console.log('coupons', changeEvent.changes.Response__c);
 		if(changeEvent.changes.Response__c.hasOwnProperty('newModifications')) {
 
 			var couponIndexes = changeEvent.changes.Response__c.newModifications;
