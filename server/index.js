@@ -24,6 +24,9 @@ const handleChange = async function (changeEvent) {
 		if(changeEvent.changes.Response__c.hasOwnProperty('oldModifications')) {
 			console.log(changeEvent.changes.Response__c.oldModifications); 
 		}
+		if(changeEvent.changes.Response__c.hasOwnProperty('newModifications:')) {
+			console.log(changeEvent.changes.Response__c.newModifications:); 
+		}
 	}
 }
 
