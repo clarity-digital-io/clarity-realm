@@ -43,14 +43,16 @@ const handleChange = async function (changeEvent) {
 		console.log('responses',oldResponses);
 		console.log('newResponses',newResponses);
 
-		// if(changeEvent.changes.Response__c.hasOwnProperty('insertions')) {
+		if(changeEvent.changes.Response__c.hasOwnProperty('newModifications')) {
 
-		let responseIndexes = changeEvent.changes.Response__c.insertions;
+			let responseIndexes = changeEvent.changes.Response__c.newModifications;
 
-		for(let responseIndex of responseIndexes) {
-			console.log('responseIndex', responseIndexes[responseIndex]);
+			for(let responseIndex of responseIndexes) {
+				console.log('responses', newResponses[responseIndex]);
+				console.log('oldResponses', oldResponses[responseIndex]);
+			}
+
 		}
-		// }
 	}
 }
 
