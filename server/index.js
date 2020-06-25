@@ -1,6 +1,13 @@
 import Realm from 'realm';
+import express from 'express';
+
 const SERVER_URL = 'https://forms-dev.us1a.cloud.realm.io';
 const REALM_URL = 'realms://forms-dev.us1a.cloud.realm.io';
+const PORT = process.env.PORT || 5000;
+
+let app = express();
+
+app.use(bodyParser.json())
 
 const listener = async () => {
 	console.log('listener');
@@ -45,4 +52,7 @@ const handleChange = async function (changeEvent) {
 	}
 }
 
-listener(); 
+app.listen(PORT, () => {
+	console.log(`App listening on port ${PORT}!`);
+	listener(); 
+});
