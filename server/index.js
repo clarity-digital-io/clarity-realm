@@ -51,8 +51,8 @@ const handleChange = async function (changeEvent) {
 			let responseIndexes = changeEvent.changes.Response__c.newModifications;
 
 			for(const response in responseIndexes) {
-				console.log('responses', response, newResponses[response]);
-				console.log('oldResponses', response, oldResponses[response]);
+				console.log('responses', response, newResponses[response], JSON.stringify(newResponses[response]));
+				console.log('oldResponses', response, oldResponses[response], JSON.stringify(oldResponses[response]));
 			}
 
 		}
