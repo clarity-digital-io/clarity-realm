@@ -32,7 +32,7 @@ export const handleChange = async function (changeEvent) {
 		}
 
 		if(changeEvent.changes.Answer__c.hasOwnProperty('newModifications')) {
-			//updateAnswer
+			
 			updateAnswers(realm, changeEvent.changes.Answer__c.newModifications, userId); 
 
 		}

@@ -1,10 +1,14 @@
+import { produce } from "../queue";
+
 export const updateResponses = (realm, updates, userId) => {
 
+	const ready = [];
 	let newResponses = realm.objects('Response__c');
 
-	for(const response in updates) {
-		console.log(newResponses[response], JSON.stringify(newResponses[response]));
-		console.log(oldResponses[response], JSON.stringify(oldResponses[response]));
+	for(const answer in updates) {
+		ready.push(newResponses[answer]);
 	}
+
+	produce('responses', ready, userId);
 
 }
