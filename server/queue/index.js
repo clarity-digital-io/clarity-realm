@@ -8,7 +8,7 @@ export const produce = async (queue, body, userId) => {
 
 	try {
 		let realmQueue = new Queue(queue, {redis: {port: PORT, host: HOST, password: PASSWORD }}); 
-		await realmQueue.add({ body: body, userId: userId, organizationId: '' });
+		await realmQueue.add({ body: body, userId: userId, organizationId: '00D540000002ita' });
 		realmQueue.close(); 
 	} catch (error) {
 		console.log('error', error); 
