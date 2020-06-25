@@ -6,7 +6,7 @@ const listener = async () => {
 	console.log('listener');
 	try {
 		const adminUser = await Realm.Sync.User.login(SERVER_URL, Realm.Sync.Credentials.nickname('realm-admin', true));
-		const config = { serverUrl: REALM_URL, adminUser: adminUser, filterRegex: '/.*/' }
+		const config = { serverUrl: REALM_URL, adminUser: adminUser, filterRegex: '/.*/user' }
 		Realm.Sync.addListener(config, 'change', handleChange)
 	} catch (error) {
 		console.log('error', error);
