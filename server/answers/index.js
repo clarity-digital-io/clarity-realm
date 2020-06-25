@@ -5,7 +5,7 @@ export const updateAnswers = (newAnswers, updates, userId) => {
 	const ready = [];
 	console.log('userId', userId); 
 	for(const answer in updates) {
-		ready.push(newAnswers[answer]);
+		ready.push(JSON.stringify(newAnswers[answer]));
 	}
 
 	produce('answers', ready, userId);
