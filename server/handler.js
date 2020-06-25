@@ -4,8 +4,8 @@ import { updateResponses } from './responses';
 export const handleChange = async function (changeEvent) {
 	const matches = changeEvent.path.match("^/([^/]+)/([^/]+)$");
 	const userId = matches[1];
-	const oldRealm = changeEvent.oldRealm;
-	const realm = changeEvent.realm;
+	let oldRealm = changeEvent.oldRealm;
+	let realm = changeEvent.realm;
 
 	if(changeEvent.changes.hasOwnProperty('Response__c')) {
 
