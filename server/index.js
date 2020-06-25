@@ -35,10 +35,14 @@ const handleChange = async function (changeEvent) {
 		console.log('change', changeEvent.changes); 
 
 		var oldRealm = changeEvent.oldRealm;
+		var realm = changeEvent.realm;
 
-		var responses = oldRealm.objects('Response1__c');
+		var oldResponses = oldRealm.objects('Response__c');
+		var newResponses = realm.objects('Response__c');
 
-		console.log('responses',responses);
+		console.log('responses',oldResponses);
+		console.log('newResponses',newResponses);
+
 		// if(changeEvent.changes.Response__c.hasOwnProperty('insertions')) {
 
 		let responseIndexes = changeEvent.changes.Response__c.insertions;
