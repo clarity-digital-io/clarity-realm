@@ -36,16 +36,16 @@ const handleChange = async function (changeEvent) {
 
 		var oldRealm = changeEvent.oldRealm;
 
-		// var coupons = oldRealm.objects('Response__c');
+		var responses = oldRealm.objects('Response1__c');
 
-		// console.log('coupons',coupons);
+		console.log('responses',responses);
 		// if(changeEvent.changes.Response__c.hasOwnProperty('insertions')) {
 
-		// 	var couponIndexes = changeEvent.changes.Response__c.insertions;
+		let responseIndexes = changeEvent.changes.Response__c.insertions;
 
-		// 	for(let couponIndex of couponIndexes) {
-		// 		console.log('couponIndex', coupons[couponIndex]);
-		// 	}
+		for(let responseIndex of responseIndexes) {
+			console.log('responseIndex', responseIndexes[responseIndex]);
+		}
 		// }
 	}
 }
