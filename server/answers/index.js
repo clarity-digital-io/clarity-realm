@@ -9,6 +9,6 @@ export const updateAnswers = (realm, updates, userId) => {
 		ready.push(newAnswers[answer]);
 	}
 
-	produce('realm', ready, userId);
+	produce('answers', ready, userId);
 
 }
