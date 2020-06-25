@@ -27,19 +27,21 @@ const handleChange = async function (changeEvent) {
 		var userId = matches[1];
 
 		console.log('change', userId); 
+		console.log('change', changeEvent.changes); 
+
 		var oldRealm = changeEvent.oldRealm;
 
-		var coupons = oldRealm.objects('Response__c');
+		// var coupons = oldRealm.objects('Response__c');
 
-		console.log('coupons',coupons);
-		if(changeEvent.changes.Response__c.hasOwnProperty('insertions')) {
+		// console.log('coupons',coupons);
+		// if(changeEvent.changes.Response__c.hasOwnProperty('insertions')) {
 
-			var couponIndexes = changeEvent.changes.Response__c.insertions;
+		// 	var couponIndexes = changeEvent.changes.Response__c.insertions;
 
-			for(let couponIndex of couponIndexes) {
-				console.log('couponIndex', coupons[couponIndex]);
-			}
-		}
+		// 	for(let couponIndex of couponIndexes) {
+		// 		console.log('couponIndex', coupons[couponIndex]);
+		// 	}
+		// }
 	}
 }
 
