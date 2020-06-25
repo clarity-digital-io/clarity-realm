@@ -7,8 +7,6 @@ const PORT = process.env.PORT || 5000;
 
 let app = express();
 
-app.use(bodyParser.json())
-
 const listener = async () => {
 	console.log('listener');
 	try {
