@@ -8,7 +8,8 @@ export const updateResponses = (newResponses, updates, userId) => {
 
 		console.log('newResponses[response]', newResponses[response], JSON.stringify(newResponses[response]));
 		console.log('where does it break 1')
-		ready.push(newResponses[response]);
+		ready.push( JSON.stringify(newResponses[response]) );
+		console.log('accessing it again breaks it'); 
 	}
 
 	produce('responses', ready, userId);
