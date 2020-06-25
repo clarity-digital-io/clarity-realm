@@ -23,17 +23,15 @@ const handleChange = async function (changeEvent) {
 
 	var matches = changeEvent.path.match("^/([^/]+)/([^/]+)$");
 	//console.log('matches', matches);
+	var userId = matches[1];
+	console.log('change', userId); 
+	console.log('change', changeEvent.changes); 
 
 	if(changeEvent.changes.hasOwnProperty('Response__c')) {
 		// console.log(changeEvent.changes.Response__c); 
 		// if(changeEvent.changes.Response__c.hasOwnProperty('oldModifications')) {
 		// 	console.log(changeEvent.changes.Response__c.oldModifications); 
 		// }
-		var userId = matches[1];
-
-		console.log('change', userId); 
-		console.log('change', changeEvent.changes); 
-
 		var oldRealm = changeEvent.oldRealm;
 		var realm = changeEvent.realm;
 
@@ -56,6 +54,12 @@ const handleChange = async function (changeEvent) {
 			}
 
 		}
+
+
+		//check for inserts
+		//check for deletes
+		//check for modifications
+
 	}
 }
 
