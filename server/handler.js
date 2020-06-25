@@ -14,9 +14,8 @@ export const handleChange = async function (changeEvent) {
 		}
 
 		if(changeEvent.changes.Response__c.hasOwnProperty('newModifications')) {
-			
-			updateResponses(realm, changeEvent.changes.Response__c.newModifications, userId); 
-
+			let newResponses = realm.objects('Answer__c');
+			updateResponses(newResponses, changeEvent.changes.Response__c.newModifications, userId); 
 		}
 
 		if(changeEvent.changes.Response__c.hasOwnProperty('insertions')) {
