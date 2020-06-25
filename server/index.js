@@ -48,8 +48,8 @@ const handleChange = async function (changeEvent) {
 			let responseIndexes = changeEvent.changes.Response__c.newModifications;
 
 			for(let responseIndex of responseIndexes) {
-				console.log('responses', newResponses[responseIndex]);
-				console.log('oldResponses', oldResponses[responseIndex]);
+				console.log('responses', responseIndex, newResponses[responseIndex]);
+				console.log('oldResponses', responseIndex, oldResponses[responseIndex]);
 			}
 
 		}
