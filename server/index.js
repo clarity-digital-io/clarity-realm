@@ -38,10 +38,13 @@ const handleChange = async function (changeEvent) {
 		var realm = changeEvent.realm;
 
 		var oldResponses = oldRealm.objects('Response__c');
-		var newResponses = realm.objects('Response__c');
+		let transformedResponses = transform(oldResponses);
 
-		console.log('responses',oldResponses);
-		console.log('newResponses',newResponses);
+		var newResponses = realm.objects('Response__c');
+		let newtransformedResponses = transform(newResponses);
+
+		console.log('responses',transformedResponses);
+		console.log('newResponses',newtransformedResponses);
 
 		if(changeEvent.changes.Response__c.hasOwnProperty('newModifications')) {
 
@@ -60,3 +63,19 @@ app.listen(PORT, () => {
 	console.log(`App listening on port ${PORT}!`);
 	listener(); 
 });
+
+const transform = (objects) => {
+	let transformedObjects = [];
+
+	for (const obj in objects) {
+		transformedObjects.push(objects[obj]); 
+	}
+
+	return transformedObjects; 
+}
+
+// 26d1c9635a39ef37a3b6560f78c0a658
+// salesforce-sandbox_00554000005E3mEAAS
+
+// /salesforce-sandbox_00554000005E3mEAAS/user
+// /salesforce-sandbox_0058A000004a1kfQAA/user
