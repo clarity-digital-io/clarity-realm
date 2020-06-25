@@ -5,7 +5,6 @@ export const handleChange = async function (changeEvent) {
 	const matches = changeEvent.path.match("^/([^/]+)/([^/]+)$");
 	const userId = matches[1];
 	let oldRealm = changeEvent.oldRealm;
-	let realm = changeEvent.realm;
 
 	if(changeEvent.changes.hasOwnProperty('Response__c')) {
 
@@ -14,6 +13,8 @@ export const handleChange = async function (changeEvent) {
 		}
 
 		if(changeEvent.changes.Response__c.hasOwnProperty('newModifications')) {
+			let realm = changeEvent.realm;
+			console.log('realm', realm); 
 			let newResponses = realm.objects('Response__c');
 			updateResponses(newResponses, changeEvent.changes.Response__c.newModifications, userId); 
 		}
