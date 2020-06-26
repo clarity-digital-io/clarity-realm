@@ -20,7 +20,7 @@ export const insertResponses = (inserts, userId) => {
 }
 
 export const deleteResponses = (oldResponses, deletions, userId) => {
-	console.log('deletions', oldResponses, deletions, userId); 
+	console.log('deletions', JSON.stringify(oldResponses), deletions, userId); 
 	let ready = [];
 	// for(const response in deletions) {
 	// 	let sResponse = JSON.stringify(oldResponses[response]);
