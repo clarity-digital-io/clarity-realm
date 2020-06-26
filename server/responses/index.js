@@ -9,23 +9,6 @@ export const updateResponses = (newResponses, updates, userId) => {
 		ready.push(parsedResponse);
 	}
 
-	let prep = prepare(ready);
+	produce('responses', JSON.stringify(ready), userId);
 
-	produce('responses', JSON.stringify(prep), userId);
-
-}
-
-const prepare = (ready) => {
-	return ready.map(response => {
-		if(response.hasOwnProperty('Answers__r')) {
-			delete response.Answers__r;
-		}
-		if(response.hasOwnProperty('Id')) {
-			delete response.Id;
-		}
-		if(response.hasOwnProperty('Name')) {
-			delete response.Name;
-		}
-		return response; 
-	})
 }
