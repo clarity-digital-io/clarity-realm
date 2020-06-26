@@ -20,13 +20,15 @@ export const insertResponses = (inserts, userId) => {
 }
 
 export const deleteResponses = (oldResponses, deletions, userId) => {
-	console.log('deletions', JSON.stringify(oldResponses), deletions, userId); 
+
 	let ready = [];
 	for(const response in deletions) {
 		let sResponse = JSON.stringify(oldResponses[response]);
 		let parsedResponse = JSON.parse(sResponse); 
 		ready.push(parsedResponse);
 	}
-	console.log('ready', ready); 
-	//produce('delete-responses', JSON.stringify(deletions), userId);
+
+	let uuids = ready.map(response => response.UUID)
+	console.log('uuids', uuids); 
+	produce('delete-responses', JSON.stringify(uuids), userId);
 }
