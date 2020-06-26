@@ -6,7 +6,6 @@ export const updateResponses = (newResponses, updates, userId) => {
 	for(const response in updates) {
 		let sResponse = JSON.stringify(newResponses[response]);
 		let parsedResponse = JSON.parse(sResponse); 
-
 		ready.push(parsedResponse);
 	}
 
