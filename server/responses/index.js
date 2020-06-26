@@ -20,13 +20,13 @@ export const insertResponses = (inserts, userId) => {
 }
 
 export const deleteResponses = (oldResponses, deletions, userId) => {
-	console.log('deletions', deletions); 
+	console.log('deletions', oldResponses, deletions); 
 	let ready = [];
-	for(const response in deletions) {
-		let sResponse = JSON.stringify(oldResponses[response]);
-		let parsedResponse = JSON.parse(sResponse); 
-		ready.push(parsedResponse);
-	}
-	console.log('ready', ready); 
+	// for(const response in deletions) {
+	// 	let sResponse = JSON.stringify(oldResponses[response]);
+	// 	let parsedResponse = JSON.parse(sResponse); 
+	// 	ready.push(parsedResponse);
+	// }
+	// console.log('ready', ready); 
 	//produce('delete-responses', JSON.stringify(deletions), userId);
 }
