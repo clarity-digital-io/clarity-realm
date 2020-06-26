@@ -5,9 +5,22 @@ export const updateResponses = (newResponses, updates, userId) => {
 	const ready = [];
 	for(const response in updates) {
 		let sResponse = JSON.stringify(newResponses[response]);
-		ready.push(JSON.parse(sResponse));
+		let parsedResponse = JSON.parse(sResponse); 
+
+		ready.push(parsedResponse);
 	}
 
-	produce('responses', JSON.stringify(ready), userId);
+	let prep = prepare(ready);
 
+	produce('responses', JSON.stringify(prep), userId);
+
+}
+
+const prepare = (ready) => {
+	return ready.map(response => {
+		if(response.hasOwnProperty('Answers__r')) {
+			delete response.Answers__r;
+		}
+		return response; 
+	})
 }
