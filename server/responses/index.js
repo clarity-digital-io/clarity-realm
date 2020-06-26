@@ -24,6 +24,9 @@ const prepare = (ready) => {
 		if(response.hasOwnProperty('Id')) {
 			delete response.Id;
 		}
+		if(response.hasOwnProperty('Name')) {
+			delete response.Name;
+		}
 		return response; 
 	})
 }
