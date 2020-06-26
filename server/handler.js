@@ -1,5 +1,5 @@
 import { updateAnswers } from './answers';
-import { updateResponses } from './responses';
+import { updateResponses, insertResponses } from './responses';
 
 export const handleChange = async function (changeEvent) {
 	const matches = changeEvent.path.match("^/([^/]+)/([^/]+)$");
@@ -20,7 +20,8 @@ export const handleChange = async function (changeEvent) {
 		}
 
 		if(changeEvent.changes.Response.hasOwnProperty('insertions')) {
-			//insertResponse
+
+			insertResponses(changeEvent.changes.Response.insertions, userId); 
 		}
 
 	}
