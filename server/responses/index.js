@@ -12,3 +12,17 @@ export const updateResponses = (newResponses, updates, userId) => {
 	produce('responses', JSON.stringify(ready), userId);
 
 }
+
+export const insertResponses = (inserts, userId) => {
+
+	const ready = [];
+	console.log('insertResponses', JSON.stringify(inserts));
+	// for(const response in updates) {
+	// 	let sResponse = JSON.stringify(newResponses[response]);
+	// 	let parsedResponse = JSON.parse(sResponse); 
+	// 	ready.push(parsedResponse);
+	// }
+
+	//produce('responses', JSON.stringify(ready), userId);
+
+}
