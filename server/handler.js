@@ -8,35 +8,35 @@ export const handleChange = async function (changeEvent) {
 	let oldRealm = changeEvent.oldRealm;
 	let realm = changeEvent.realm;
 
-	if(changeEvent.changes.hasOwnProperty('Response__c')) {
+	if(changeEvent.changes.hasOwnProperty('Response')) {
 
-		if(changeEvent.changes.Response__c.hasOwnProperty('deletions')) {
+		if(changeEvent.changes.Response.hasOwnProperty('deletions')) {
 			//deleteResponse will delete answers too
 		}
 
-		if(changeEvent.changes.Response__c.hasOwnProperty('newModifications')) {
-			let newResponses = realm.objects('Response__c');
-			updateResponses(newResponses, changeEvent.changes.Response__c.newModifications, userId); 
+		if(changeEvent.changes.Response.hasOwnProperty('newModifications')) {
+			let newResponses = realm.objects('Response');
+			updateResponses(newResponses, changeEvent.changes.Response.newModifications, userId); 
 		}
 
-		if(changeEvent.changes.Response__c.hasOwnProperty('insertions')) {
+		if(changeEvent.changes.Response.hasOwnProperty('insertions')) {
 			//insertResponse
 		}
 
 	}
 
-	if(changeEvent.changes.hasOwnProperty('Answer__c')) {
+	if(changeEvent.changes.hasOwnProperty('Answer')) {
 
-		if(changeEvent.changes.Answer__c.hasOwnProperty('deletions')) {
+		if(changeEvent.changes.Answer.hasOwnProperty('deletions')) {
 			//deleteAnswer ? maybe not needed 
 		}
 
-		if(changeEvent.changes.Answer__c.hasOwnProperty('newModifications')) {
-			let newAnswers = realm.objects('Answer__c');
-			updateAnswers(newAnswers, changeEvent.changes.Answer__c.newModifications, userId); 
+		if(changeEvent.changes.Answer.hasOwnProperty('newModifications')) {
+			let newAnswers = realm.objects('Answer');
+			updateAnswers(newAnswers, changeEvent.changes.Answer.newModifications, userId); 
 		}
 
-		if(changeEvent.changes.Answer__c.hasOwnProperty('insertions')) {
+		if(changeEvent.changes.Answer.hasOwnProperty('insertions')) {
 			//insertAnswer
 		}
 
