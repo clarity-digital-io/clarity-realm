@@ -8,6 +8,6 @@ export const updateAnswers = (newAnswers, updates, userId) => {
 		ready.push(JSON.stringify(newAnswers[answer]));
 	}
 	console.log('ready', ready); 
-	produce('answers', ready, userId);
+	produce('answers', JSON.stringify(ready), userId);
 
 }
