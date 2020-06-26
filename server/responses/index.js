@@ -8,7 +8,7 @@ export const updateResponses = (newResponses, updates, userId) => {
 		let parsedResponse = JSON.parse(sResponse); 
 		ready.push(parsedResponse);
 	}
-
+	
 	produce('responses', JSON.stringify(ready), userId);
 
 }
