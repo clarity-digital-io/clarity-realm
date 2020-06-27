@@ -1,13 +1,28 @@
 import { produce } from "../queue";
 
-export const updateAnswers = (newAnswers, updates, userId) => {
+export const updateAnswers = (updates, userId) => {
 
-	const ready = [];
-
-	for(const answer in updates) {
-		let sAnswer = JSON.stringify(newAnswers[answer]); 
-		ready.push(JSON.parse(sAnswer));
+	if(updates.length > 0) {
+		produce('answers', JSON.stringify(updates), userId);
 	}
-	produce('answers', JSON.stringify(ready), userId);
+
+}
+
+export const insertAnswers = (inserts, userId) => {
+
+	if(inserts.length > 0) {
+		produce('answers', JSON.stringify(inserts), userId);
+	}
+
+
+}
+
+export const deleteAnswers = (deletions, userId) => {
+
+	let uuids = deletions.map(response => response.UUID);
+
+	if(uuids.length > 0) {
+		produce('delete-answers', JSON.stringify(uuids), userId);
+	}
 
 }

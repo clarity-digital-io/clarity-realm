@@ -1,5 +1,6 @@
 import { updateAnswers } from './answers';
 import { updateResponses, insertResponses, deleteResponses } from './responses';
+import { updateAnswers, insertAnswers, deleteAnswers } from './answers';
 
 export const handleChange = async function (changeEvent) {
 	const matches = changeEvent.path.match("^/([^/]+)/([^/]+)$");
@@ -27,16 +28,15 @@ export const handleChange = async function (changeEvent) {
 	if(changes.hasOwnProperty('Answer')) {
 
 		if(changes.Answer.hasOwnProperty('deletions') && changes.Answer.deletions.length > 0) {
-			//deleteAnswer ? maybe not needed 
+			deleteAnswers(changes.Response.deletions, userId); 
 		}
 
 		if(changes.Answer.hasOwnProperty('newModifications') && changes.Answer.newModifications.length > 0) {
-			let newAnswers = realm.objects('Answer');
-			updateAnswers(newAnswers, changes.Answer.newModifications, userId); 
+			updateAnswers(changes.Answer.newModifications, userId); 
 		}
 
 		if(changes.Answer.hasOwnProperty('insertions') && changes.Answer.insertions.length > 0) {
-			//insertAnswer
+			insertAnswers(changes.Answer.insertions, userId); 
 		}
 
 	}
