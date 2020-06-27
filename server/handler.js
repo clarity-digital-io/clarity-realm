@@ -1,4 +1,3 @@
-import { updateAnswers } from './answers';
 import { updateResponses, insertResponses, deleteResponses } from './responses';
 import { updateAnswers, insertAnswers, deleteAnswers } from './answers';
 
@@ -42,7 +41,3 @@ export const handleChange = async function (changeEvent) {
 	}
 
 }
-
-// 00554000005E3mEAAS
-
-// a0754000002RgJyAAK
