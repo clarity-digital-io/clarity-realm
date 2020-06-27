@@ -4,39 +4,40 @@ import { updateResponses, insertResponses, deleteResponses } from './responses';
 export const handleChange = async function (changeEvent) {
 	const matches = changeEvent.path.match("^/([^/]+)/([^/]+)$");
 	const userId = matches[1];
+	const changes = changeEvent.changes; 
 	console.log('userId', userId); 
 	let oldRealm = changeEvent.oldRealm;
 	let realm = changeEvent.realm;
-	console.log('changeEvent.changes', changeEvent.changes); 
-	if(changeEvent.changes.hasOwnProperty('Response')) {
-		if(changeEvent.changes.Response.hasOwnProperty('deletions')) {
+
+	if(changes.hasOwnProperty('Response')) {
+		if(changes.Response.hasOwnProperty('deletions') && changes.Response.deletions.length > 0) {
 			let oldResponses = oldRealm.objects('Response');
-			deleteResponses(oldResponses, changeEvent.changes.Response.deletions, userId); 
+			deleteResponses(oldResponses, changes.Response.deletions, userId); 
 		}
 
-		if(changeEvent.changes.Response.hasOwnProperty('newModifications')) {
+		if(changes.Response.hasOwnProperty('newModifications') && changes.Response.newModifications.length > 0) {
 			let newResponses = realm.objects('Response');
-			updateResponses(newResponses, changeEvent.changes.Response.newModifications, userId); 
+			updateResponses(newResponses, changes.Response.newModifications, userId); 
 		}
 
-		if(changeEvent.changes.Response.hasOwnProperty('insertions')) {
-			insertResponses(changeEvent.changes.Response.insertions, userId); 
+		if(changes.Response.hasOwnProperty('insertions') && changes.Response.insertions.length > 0) {
+			insertResponses(changes.Response.insertions, userId); 
 		}
 
 	}
 
-	if(changeEvent.changes.hasOwnProperty('Answer')) {
+	if(changes.hasOwnProperty('Answer')) {
 
-		if(changeEvent.changes.Answer.hasOwnProperty('deletions')) {
+		if(changes.Answer.hasOwnProperty('deletions') && changes.Answer.deletions.length > 0) {
 			//deleteAnswer ? maybe not needed 
 		}
 
-		if(changeEvent.changes.Answer.hasOwnProperty('newModifications')) {
+		if(changes.Answer.hasOwnProperty('newModifications') && changes.Answer.newModifications.length > 0) {
 			let newAnswers = realm.objects('Answer');
-			updateAnswers(newAnswers, changeEvent.changes.Answer.newModifications, userId); 
+			updateAnswers(newAnswers, changes.Answer.newModifications, userId); 
 		}
 
-		if(changeEvent.changes.Answer.hasOwnProperty('insertions')) {
+		if(changes.Answer.hasOwnProperty('insertions') && changes.Answer.insertions.length > 0) {
 			//insertAnswer
 		}
 
