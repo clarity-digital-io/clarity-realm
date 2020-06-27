@@ -14,15 +14,4 @@ export const insertAnswers = (inserts, userId) => {
 		produce('answers', JSON.stringify(inserts), userId);
 	}
 
-
-}
-
-export const deleteAnswers = (deletions, userId) => {
-
-	let uuids = deletions.map(response => response.UUID);
-
-	if(uuids.length > 0) {
-		produce('delete-answers', JSON.stringify(uuids), userId);
-	}
-
 }

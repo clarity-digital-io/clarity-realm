@@ -10,6 +10,7 @@ export const handleChange = async function (changeEvent) {
 	let realm = changeEvent.realm;
 
 	if(changes.hasOwnProperty('Response')) {
+
 		if(changes.Response.hasOwnProperty('deletions') && changes.Response.deletions.length > 0) {
 			deleteResponses(changes.Response.deletions, userId); 
 		}
@@ -26,10 +27,6 @@ export const handleChange = async function (changeEvent) {
 
 	if(changes.hasOwnProperty('Answer')) {
 
-		if(changes.Answer.hasOwnProperty('deletions') && changes.Answer.deletions.length > 0) {
-			deleteAnswers(changes.Response.deletions, userId); 
-		}
-
 		if(changes.Answer.hasOwnProperty('newModifications') && changes.Answer.newModifications.length > 0) {
 			updateAnswers(changes.Answer.newModifications, userId); 
 		}
@@ -41,3 +38,9 @@ export const handleChange = async function (changeEvent) {
 	}
 
 }
+
+// q a0C54000004B2svEAC
+
+// 00554000005E3mEAAS
+
+// a0754000002RgJyAAK
