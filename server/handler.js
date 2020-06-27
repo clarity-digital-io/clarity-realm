@@ -11,13 +11,11 @@ export const handleChange = async function (changeEvent) {
 
 	if(changes.hasOwnProperty('Response')) {
 		if(changes.Response.hasOwnProperty('deletions') && changes.Response.deletions.length > 0) {
-			let oldResponses = oldRealm.objects('Response');
-			deleteResponses(oldResponses, changes.Response.deletions, userId); 
+			deleteResponses(changes.Response.deletions, userId); 
 		}
 
 		if(changes.Response.hasOwnProperty('newModifications') && changes.Response.newModifications.length > 0) {
-			let newResponses = realm.objects('Response');
-			updateResponses(newResponses, changes.Response.newModifications, userId); 
+			updateResponses(changes.Response.newModifications, userId); 
 		}
 
 		if(changes.Response.hasOwnProperty('insertions') && changes.Response.insertions.length > 0) {
