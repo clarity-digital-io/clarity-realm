@@ -20,6 +20,7 @@ export const insertResponses = (inserts, userId) => {
 	let ready = JSON.stringify(inserts); 
 	console.log('ready', ready, JSON.parse(ready).length);
 	if(JSON.parse(ready).length > 0) {
+		console.log('what');
 		produce('responses', ready, userId);
 	}
 
@@ -34,7 +35,8 @@ export const deleteResponses = (oldResponses, deletions, userId) => {
 		ready.push(parsedResponse);
 	}
 
-	let uuids = ready.map(response => response.UUID)
+	let uuids = ready.map(response => response.UUID);
+	console.log('uuids', ready, uuids);
 	if(uuids.length > 0) {
 		produce('delete-responses', JSON.stringify(uuids), userId);
 	}
