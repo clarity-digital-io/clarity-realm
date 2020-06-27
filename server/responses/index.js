@@ -9,13 +9,17 @@ export const updateResponses = (newResponses, updates, userId) => {
 		ready.push(parsedResponse);
 	}
 
-	produce('responses', JSON.stringify(ready), userId);
+	if(ready.length > 0) {
+		produce('responses dont send if empty', JSON.stringify(ready), userId);
+	}
 
 }
 
 export const insertResponses = (inserts, userId) => {
 
-	produce('responses', JSON.stringify(inserts), userId);
+	if(inserts.length > 0) {
+		produce('responses dont send if empty', JSON.stringify(inserts), userId);
+	}
 
 }
 
@@ -29,6 +33,7 @@ export const deleteResponses = (oldResponses, deletions, userId) => {
 	}
 
 	let uuids = ready.map(response => response.UUID)
-	console.log('uuids', uuids); 
-	produce('delete-responses', JSON.stringify(uuids), userId);
+	if(uuids.length > 0) {
+		produce('delete-responses', JSON.stringify(uuids), userId);
+	}
 }
