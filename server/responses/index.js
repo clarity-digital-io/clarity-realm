@@ -1,7 +1,7 @@
 import { produce } from "../queue";
 
 export const updateResponses = (newResponses, updates, userId) => {
-
+	console.log('JSON.stringify', JSON.stringify(updates))
 	let ready = [];
 	for(const response in updates) {
 		let sResponse = JSON.stringify(newResponses[response]);
