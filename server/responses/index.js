@@ -10,7 +10,7 @@ export const updateResponses = (newResponses, updates, userId) => {
 	}
 
 	if(ready.length > 0) {
-		produce('responses dont send if empty', JSON.stringify(ready), userId);
+		produce('responses', JSON.stringify(ready), userId);
 	}
 
 }
@@ -20,7 +20,7 @@ export const insertResponses = (inserts, userId) => {
 	let ready = JSON.stringify(inserts); 
 	console.log('ready', ready, JSON.parse(ready).length);
 	if(JSON.parse(ready).length > 0) {
-		produce('responses dont send if empty', ready, userId);
+		produce('responsesy', ready, userId);
 	}
 
 }
