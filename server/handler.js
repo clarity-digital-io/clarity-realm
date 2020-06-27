@@ -9,10 +9,8 @@ export const handleChange = async function (changeEvent) {
 	let realm = changeEvent.realm;
 
 	if(changeEvent.changes.hasOwnProperty('Response')) {
-		console.log('changeEvent.changes.Response', changeEvent.changes.Response); 
 		if(changeEvent.changes.Response.hasOwnProperty('deletions')) {
 			let oldResponses = oldRealm.objects('Response');
-			console.log('realm', realm, changeEvent.changes.Response);
 			deleteResponses(oldResponses, changeEvent.changes.Response.deletions, userId); 
 		}
 
