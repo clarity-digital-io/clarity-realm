@@ -20,7 +20,7 @@ export const insertResponses = (inserts, userId) => {
 	let ready = JSON.stringify(inserts); 
 	console.log('ready', ready, JSON.parse(ready).length);
 	if(JSON.parse(ready).length > 0) {
-		produce('responsesy', ready, userId);
+		produce('responses', ready, userId);
 	}
 
 }
