@@ -16,7 +16,7 @@ export const updateResponses = (newResponses, updates, userId) => {
 }
 
 export const insertResponses = (inserts, userId) => {
-
+	console.log('insertions:', inserts); 
 	if(inserts.length > 0) {
 		produce('responses dont send if empty', JSON.stringify(inserts), userId);
 	}
