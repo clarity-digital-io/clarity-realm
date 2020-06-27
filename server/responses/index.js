@@ -1,17 +1,17 @@
 import { produce } from "../queue";
 
 export const updateResponses = (newResponses, updates, userId) => {
-	console.log('JSON.stringify', JSON.stringify(updates))
-	let ready = [];
-	for(const response in updates) {
-		let sResponse = JSON.stringify(newResponses[response]);
-		console.log('sResponse', sResponse, response, JSON.stringify(response)); 
-		let parsedResponse = JSON.parse(sResponse); 
-		ready.push(parsedResponse);
-	}
+	// console.log('JSON.stringify', JSON.stringify(updates))
+	// let ready = [];
+	// for(const response in updates) {
+	// 	let sResponse = JSON.stringify(newResponses[response]);
+	// 	console.log('sResponse', sResponse, response, JSON.stringify(response)); 
+	// 	let parsedResponse = JSON.parse(sResponse); 
+	// 	ready.push(parsedResponse);
+	// }
 
-	if(ready.length > 0) {
-		produce('responses', JSON.stringify(ready), userId);
+	if(updates.length > 0) {
+		produce('responses', JSON.stringify(updates), userId);
 	}
 
 }
