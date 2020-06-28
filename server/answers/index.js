@@ -11,20 +11,8 @@ export const updateAnswers = (updates, userId) => {
 
 export const insertAnswers = (inserts, userId) => {
 
-	let transformedInserts = inserts.map(answer => {
-
-		if(answer.ContentDocument != null) {
-			var base64 = encode(new ArrayBuffer(answer.ContentDocument)); 
-			answer.ContentDocument = base64;
-			return answer; 
-		} 
-
-		return answer; 
-
-	});
-
 	if(inserts.length > 0) {
-		produce('answers', JSON.stringify(transformedInserts), userId);
+		produce('answers', JSON.stringify(inserts), userId);
 	}
 
 }
