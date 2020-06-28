@@ -1,3 +1,4 @@
+import { encode } from 'base64-arraybuffer';
 import { produce } from "../queue";
 
 export const updateAnswers = (updates, userId) => {
@@ -9,7 +10,7 @@ export const updateAnswers = (updates, userId) => {
 }
 
 export const insertAnswers = (inserts, userId) => {
-	
+
 	let transformedInserts = inserts.map(answer => {
 
 		if(answer.ContentDocument != null) {
