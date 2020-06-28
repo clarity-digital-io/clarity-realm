@@ -14,7 +14,7 @@ export const insertAnswers = (inserts, userId) => {
 	let transformedInserts = inserts.map(answer => {
 
 		if(answer.ContentDocument != null) {
-			var base64 = encode(answer.ContentDocument); 
+			var base64 = encode(new ArrayBuffer(answer.ContentDocument)); 
 			answer.ContentDocument = base64;
 			return answer; 
 		} 
