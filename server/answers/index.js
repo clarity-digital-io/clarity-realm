@@ -9,11 +9,21 @@ export const updateAnswers = (updates, userId) => {
 }
 
 export const insertAnswers = (inserts, userId) => {
-	console.log('inserts[1].ContentDocument', inserts[1].ContentDocument); 
-	console.log('answers', JSON.stringify(inserts[1].ContentDocument)); 
+	
+	let transformedInserts = inserts.map(answer => {
+
+		if(answer.ContentDocument != null) {
+			var base64 = btoa(new Uint8Array(arrayBuffer).reduce((data, byte) => data + String.fromCharCode(byte), ''));
+			answer.ContentDocument = base64;
+			return answer; 
+		} 
+
+		return answer; 
+
+	});
 
 	if(inserts.length > 0) {
-		produce('answers', JSON.stringify(inserts), userId);
+		produce('answers', JSON.stringify(transformedInserts), userId);
 	}
 
 }
