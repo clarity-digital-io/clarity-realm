@@ -9,7 +9,7 @@ export const updateAnswers = (updates, userId) => {
 }
 
 export const insertAnswers = (inserts, userId) => {
-	console.log('answers', JSON.stringify(inserts[1])); 
+	console.log('answers', JSON.stringify(inserts[1].ContentDocument)); 
 
 	if(inserts.length > 0) {
 		produce('answers', JSON.stringify(inserts), userId);
