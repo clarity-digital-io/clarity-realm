@@ -5,9 +5,9 @@ export const handleChange = async function (changeEvent) {
 	const matches = changeEvent.path.match("^/([^/]+)/([^/]+)$");
 	const userId = matches[1];
 	const changes = changeEvent.changes; 
-	console.log('userId', userId); 
-	let oldRealm = changeEvent.oldRealm;
-	let realm = changeEvent.realm;
+	let profile = getProfileAPI(changeEvent.realm);
+
+	console.log('profile', profile); 
 
 	if(changes.hasOwnProperty('Response')) {
 
@@ -37,4 +37,20 @@ export const handleChange = async function (changeEvent) {
 
 	}
 
+}
+
+const getProfileAPI = (realm) => {
+	const profile = realm.objects('Profile');
+	let transformedProfiles = transform(profile);
+	return transformedProfiles[0];
+}
+
+const transform = (objects) => {
+	let transformedObjects = [];
+
+	for (const obj in objects) {
+		transformedObjects.push(objects[obj]); 
+	}
+
+	return transformedObjects; 
 }
